@@ -39,11 +39,11 @@ switch ($_GET["op"]) {
 				$data = array();
 
 				while ($reg=$rspta->fetch_object()){
-					$data[]=array( 
-						"0"=$reg->idcategoria,
-						"1"=$reg->nombre,
-						"2"=$reg->descripcion,
-						"3"=$reg->condicion
+					$data[]=array(
+						"0"=>$reg->idcategoria,
+						"1"=>$reg->nombre,
+						"2"=>$reg->descripcion,
+						"3"=>$reg->condicion
 					);
 				}
 				$results = array(
@@ -52,7 +52,7 @@ switch ($_GET["op"]) {
 					"iTotalDisplayRecords"=>count($data),// enviamos el total registros a visualizacion
 					"aaData"=>$data//
 				);
-				echo json_decode($results);
+				echo json_encode($results);
 		break;
 
 }

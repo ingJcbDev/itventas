@@ -2,8 +2,12 @@ var tabla;
 
 //Funcion que se ejecuta al inicio
 function init(){
- mostrarform(false);
+ mostrarform(false); // se llama la funcion mostrarform pero inicialmente el formulario no se muestre
  listar();
+ $("#formulario").on("submit", function(e)
+ {
+ 	guardaryeditar(e);
+ })
 }
 
 // Funcion limpiar
@@ -19,20 +23,20 @@ function mostrarform(flag)
 	limpiar();
 	if(flag)
 		{
-			$("#listadoregistros").hide();
-			$("#formularioregistros").show();
-			$("#btnGuardar").prop("disabled",false);
+			$("#listadoregistros").hide(); // son los nombres de los div esto lo oculta
+			$("#formularioregistros").show(); // div lo pone visible 
+			$("#btnGuardar").prop("disabled",false); // este boton inicialmenteaparece visible con esto lo oculta
 		}
 		else
 		{
-			$("#listadoregistros").show();
-			$("#formularioregistros").hide();
+			$("#listadoregistros").show(); // con la propiedad show se visualiza el div
+			$("#formularioregistros").hide(); // con la propiedad hide se oculta el div
 		}
 	}
 
 function cancelarform(){
-	limpiar();
-	mostrarform(false);
+	limpiar(); //limpia los campos
+	mostrarform(false); // con el false indica que el mostrarform no estara visible
 }
 
 function listar(){
@@ -42,7 +46,7 @@ function listar(){
 		dom: 'Bfrtip',//Definimos los elementos del control de tabla
 		buttons:[
 					'copyHtml5',
-					'excelHtml5',
+					'excelHtml5', 
 					'csvHtml5',
 					'pdf'
 				],
@@ -56,9 +60,35 @@ function listar(){
 					} 
 				},
 		"bDestroy": true,
-		"iDisplayLength": 5, //paginacion 
+		"iDisplayLength": 5, //paginacion cada cuantos registros
 		"order": [[0, "desc"]] // orden los datos (columna, orden)
 	}).DataTable();
 }
+
+function guardaryeditar(e){
+	e.preventDefault(); // No se activara la opcion predetermindad del evento
+	$("#btnGuardar").prop("disabled", true);
+	var formData = new FormData($("#formulario")[0]);
+
+	$ajax({
+		url: "../ajax/categoria.php?op=guardaryeditar",
+		type: "POST",
+		data: formData,
+		contentType: false,
+		processData: false,
+
+		success: function(datos)
+		{
+			alert(datos);
+			mostrarform(false);
+			tabla.ajax.reload();
+		}
+
+		});
+	limpiar();
+	}
+}
+
+
 
 init();

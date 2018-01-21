@@ -49,7 +49,7 @@ class Categoria {
 	}
 
 	// mostar lista de registros 
-	public function mostar ($idcategoria)
+	public function listar()
 	{
 		$sql="SELECT * FROM categoria";
 		return ejecutarConsulta($sql);
