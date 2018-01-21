@@ -1,0 +1,6 @@
+// -- ubicarse donde va quedar el proyecto comando (cd/nombreCarpeta) 
+git init  // -- iniciar un nuevo repositorio
+
+git remote add origin https://github.com/ingJcbDev/itventas.git  //-- Para agregar el repositorio remoto 
+
+git config --global user.email ing.jcb.dev@gmail.com 
