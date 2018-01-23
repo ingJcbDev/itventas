@@ -2,12 +2,14 @@ var tabla;
 
 //Funcion que se ejecuta al inicio
 function init(){
+
  mostrarform(false); // se llama la funcion mostrarform pero inicialmente el formulario no se muestre
  listar();
  $("#formulario").on("submit", function(e)
  {
  	guardaryeditar(e);
  })
+
 }
 
 // Funcion limpiar
@@ -65,12 +67,12 @@ function listar(){
 	}).DataTable();
 }
 
-function guardaryeditar(e){
+function guardaryeditar(e) {
 	e.preventDefault(); // No se activara la opcion predetermindad del evento
 	$("#btnGuardar").prop("disabled", true);
 	var formData = new FormData($("#formulario")[0]);
 
-	$ajax({
+	$.ajax({
 		url: "../ajax/categoria.php?op=guardaryeditar",
 		type: "POST",
 		data: formData,
@@ -79,7 +81,7 @@ function guardaryeditar(e){
 
 		success: function(datos)
 		{
-			alert(datos);
+			bootbox.alert(datos);
 			mostrarform(false);
 			tabla.ajax.reload();
 		}
@@ -87,7 +89,7 @@ function guardaryeditar(e){
 		});
 	limpiar();
 	}
-}
+
 
 
 

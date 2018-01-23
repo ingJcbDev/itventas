@@ -38,6 +38,7 @@
           </div>
           <div class="panel-body" id="formularioregistros">
             <form name="formulario" id="formulario" method="POST">
+
               <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xl-12">
                 <label>Nombre:</label>
                 <input type="hidden" name="idcategoria" id="idcategoria">
@@ -46,8 +47,9 @@
 
               <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xl-12">
                 <label>Descripcion:</label>
-                <input type="text" class="form-control" name="descripcion" id="descripcion" maxlength="256" placeholder="Descripción" required>
+                <input type="text" class="form-control" name="descripcion" id="descripcion" maxlength="256" placeholder="Descripción">
               </div>
+
               <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xl-12">
                 <button class="btn btn-primary" type="submit" id="btnGuardar"> 
                   <i class="fa fa-save"></i>Guardar 
@@ -55,7 +57,8 @@
                 <button class="btn btn-danger" onclick="cancelarform()" type="button"> 
                   <i class="fa fa-arrow-circle-left"></i>Cancelar 
                 </button>
-              </div>              
+              </div> 
+
             </form>
           </div>
           <!-- fin centro -->

@@ -96,6 +96,10 @@
 <!-- AdminLTE App -->
 <script src="../public/dist/js/adminlte.min.js"></script>
 
+<!-- bootbox -->
+<script src="../public/js/bootbox.min.js"></script>
+<!-- bootbox fin -->
+
 <!-- DATATABLES -->
 
   <script src="../public/datatables/jquery.dataTables.min.js"></script>
