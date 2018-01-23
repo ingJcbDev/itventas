@@ -81,7 +81,11 @@ function guardaryeditar(e) {
 
 		success: function(datos)
 		{
-			bootbox.alert(datos);
+			bootbox.alert({
+			    message: datos,
+			    size: 'small'
+			});
+			/*bootbox.alert(datos);*/
 			mostrarform(false);
 			tabla.ajax.reload();
 		}
