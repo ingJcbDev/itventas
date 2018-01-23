@@ -30,7 +30,7 @@ switch ($_GET["op"]) {
 
 	case 'mostrar':
 				$rspta = $categoria->mostrar($idcategoria);
-				echo json_decode($rspta);
+				echo json_encode($rspta);
 		break;
 
 	case 'listar':
@@ -40,7 +40,7 @@ switch ($_GET["op"]) {
 
 				while ($reg=$rspta->fetch_object()){
 					$data[]=array(
-						"0"=>$reg->idcategoria,
+						"0"=>'<button class="btn btn-warning" onclick="mostrar('.$reg->idcategoria.')"> <i class="fa fa-pencil"></i></button>',
 						"1"=>$reg->nombre,
 						"2"=>$reg->descripcion,
 						"3"=>$reg->condicion

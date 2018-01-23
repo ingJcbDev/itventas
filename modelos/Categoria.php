@@ -23,7 +23,7 @@ class Categoria {
 	// Metodo de update registros tabla categoria
 	public function editar ($idcategoria, $nombre, $descripcion)
 	{
-		$sql="UPDATE categoria SET nombre='$nombre', descripcion='$descripcion' WHERE idcategoria='$categoria'";
+		$sql="UPDATE categoria SET nombre='$nombre', descripcion='$descripcion' WHERE idcategoria='$idcategoria'";
 		return ejecutarConsulta($sql);
 	}
 
@@ -41,14 +41,14 @@ class Categoria {
 		return ejecutarConsulta($sql);
 	}
 
-	// mostar solo una fila 
-	public function mostar ($idcategoria)
+	// mostrar solo una fila 
+	public function mostrar($idcategoria)
 	{
 		$sql="SELECT * FROM categoria WHERE idcategoria='$idcategoria'";
 		return ejecutarConsultaSimpleFila($sql);
 	}
 
-	// mostar lista de registros 
+	// mostrar lista de registros 
 	public function listar()
 	{
 		$sql="SELECT * FROM categoria";
