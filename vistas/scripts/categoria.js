@@ -106,7 +106,33 @@ function guardaryeditar(e) {
 
  	})
  }
+// funcion para desactivar registros 
+function desactivar(idcategoria)
+{
+	bootbox.confirm("¿Está seguro de desactivar la categoría?", function(result){
+		if (result)
+		{
+			$.post("../ajax/categoria.php?op=desactivar",{idcategoria : idcategoria}, function(e){
+				bootbox.alert(e);
+				tabla.ajax.reload();	
+			});
+		}
+	})
+}
 
+// funcion para activar registros 
+function activar(idcategoria)
+{
+	bootbox.confirm("¿Está seguro de activar la categoría?", function(result){
+		if (result)
+		{
+			$.post("../ajax/categoria.php?op=activar",{idcategoria : idcategoria}, function(e){
+				bootbox.alert(e);
+				tabla.ajax.reload();	
+			});
+		}
+	})
+}
 
 
 

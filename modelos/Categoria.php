@@ -30,14 +30,14 @@ class Categoria {
 	// Metodo de update desactivar categoria
 	public function desactivar ($idcategoria)
 	{
-		$sql="UPDATE categoria SET condicion='0' WHERE idcategoria='$categoria'";
+		$sql="UPDATE categoria SET condicion='0' WHERE idcategoria='$idcategoria'";
 		return ejecutarConsulta($sql);
 	}
 
     // Metodo de update activar categoria
 	public function activar ($idcategoria)
 	{
-		$sql="UPDATE categoria SET condicion='1' WHERE idcategoria='$categoria'";
+		$sql="UPDATE categoria SET condicion='1' WHERE idcategoria='$idcategoria'";
 		return ejecutarConsulta($sql);
 	}
 
