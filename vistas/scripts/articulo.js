@@ -13,15 +13,14 @@ function init(){
 }
 
 // Funcion limpiar
-
 function limpiar (){
-	$("#idarticulo").val("");
-	$("#idcategoria").val("");
+/*	$("#idarticulo").val("");
+	$("#idcategoria").val("");*/
 	$("#codigo").val("");
 	$("#nombre").val("");
-	$("#stock").val("");
 	$("#descripcion").val("");
-	$("#imagen").val("");
+	$("#stock").val("");
+/*	$("#imagen").val("");*/
 }
 
 // Funcion mostrar formulario
@@ -110,7 +109,7 @@ function guardaryeditar(e) {
  		$("#nombre").val(data.nombre);
 		$("#stock").val(descripcion);
  		$("#descripcion").val(data.descripcion);
-		$("#imagen").val(data.imagen)
+		/*$("#imagen").val(data.imagen)*/
  		$("#idarticulo").val(data.idarticulo);
 
  	})
@@ -118,7 +117,7 @@ function guardaryeditar(e) {
 // funcion para desactivar registros 
 function desactivar(idarticulo)
 {
-	bootbox.confirm("¿Está seguro de desactivar la categoría?", function(result){
+	bootbox.confirm("¿Está seguro de desactivar el articulo?", function(result){
 		if (result)
 		{
 			$.post("../ajax/articulo.php?op=desactivar",{idarticulo : idarticulo}, function(e){
@@ -132,7 +131,7 @@ function desactivar(idarticulo)
 // funcion para activar registros 
 function activar(idarticulo)
 {
-	bootbox.confirm("¿Está seguro de activar la categoría?", function(result){
+	bootbox.confirm("¿Está seguro de activar el articulo?", function(result){
 		if (result)
 		{
 			$.post("../ajax/articulo.php?op=activar",{idarticulo : idarticulo}, function(e){
