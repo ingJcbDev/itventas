@@ -62,7 +62,7 @@ class Articulo {
 	public function activar ($idarticulo)
 	{
 		$sql="UPDATE articulo 
-				SET    condicion = '0' 
+				SET    condicion = '1' 
 				WHERE  idarticulo = '$idarticulo';";
 		return ejecutarConsulta($sql);
 	}
