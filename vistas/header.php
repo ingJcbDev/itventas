@@ -30,6 +30,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
   <!-- DATATABLES FIN-->
 
+  <!-- ESTILOS DE SELECT -->
+
+  <link rel="stylesheet" type="text/css" href="../public/css/bootstrap-select.min.css">
+
+  <!-- ESTILOS DE SELECT FIN-->
+
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>

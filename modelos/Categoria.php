@@ -54,6 +54,14 @@ class Categoria {
 		$sql="SELECT * FROM categoria";
 		return ejecutarConsulta($sql);
 	}
+
+	// mostrar select de las categorias 
+	public function select()
+	{
+		$sql="SELECT * FROM categoria where condicion=1;";
+		return ejecutarConsulta($sql);
+	}
+
 }
 
 ?>

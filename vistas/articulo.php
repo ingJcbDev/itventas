@@ -53,7 +53,7 @@
                                          
               <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xl-12">
                 <label>Categoria(*):</label>
-                <select id="idcategoria" name="idcategoria" class="form-control"></select>
+                <select id="idcategoria" name="idcategoria" class="form-control selectpicker" data-live-search="true"></select>
               </div>
 
               <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xl-12">
@@ -68,7 +68,7 @@
 
               <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xl-12">
                 <label>Imagen:</label>
-                <input type="file" class="form-control" name="imagen" id="imagen" >
+                <input type="file" class="form-control" name="imagen" id="imagen" required>
               </div>              
 
               <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xl-12">

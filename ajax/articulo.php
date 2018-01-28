@@ -12,37 +12,45 @@ $descripcion = isset($_POST["descripcion"]) ? limpiarCadena($_POST["descripcion"
 $imagen = isset($_POST["imagen"]) ? limpiarCadena($_POST["imagen"]) :"";
 
 switch ($_GET["op"]) {
-
-/*	if(!file_exists($_FILES['imagen']['tmp_name']) || !is_uploaded_file($_FILES['imagen']['tmp_name']))
+	case 'guardaryeditar':
+/*
+inicio
+valida que al cargar la imagen sea de tipo jpg, png o jpeg
+*/	
+if(!file_exists($_FILES['imagen']['tmp_name']) || !is_uploaded_file($_FILES['imagen']['tmp_name']))
 	{
 		$imagen="";
 	}else{
 		$ext=explode(".", $_FILES["imagen"]["name"]);
 		if($_FILES['imagen']['type'] == "image/jpg" || $_FILES['imagen']['type'] == "image/jpeg" || $_FILES['imagen']['type'] == "image/png")
 		{
-			$imagen= round(microtime(true)) . '.' . end($ext);
-			move_uploaded_file($_FILES["imagen"]["tmp_name"], "../files/articulos/" . $imagen);
+			$imagen= round(microtime(true)) . '.' . end($ext); // le genera un id unico con el tiempo a la imagen 
+			move_uploaded_file($_FILES["imagen"]["tmp_name"], "../files/articulos/" . $imagen); // para cargar a la carpeta
 		}
-	}*/
+	}
 
-	case 'guardaryeditar':
+/*
+fin
+valida que al cargar la imagen sea de tipo jpg, png o jpeg
+*/		
+
 			if(empty($idarticulo)){
 				$rspta = $articulo->insertar($idcategoria, $codigo, $nombre, $stock, $descripcion, $imagen);
-				echo $rspta ? "Articulo registrada" : "Articulo no se pudo registrar";
+				echo $rspta ? "Articulo registrado" : "Articulo no se pudo registrar";
 			}	else {
 				$rspta = $articulo->editar($idarticulo, $idcategoria, $codigo, $nombre, $stock, $descripcion, $imagen);
-				echo $rspta ? "Articulo actualizada" : "Articulo no se pudo actualizar";
+				echo $rspta ? "Articulo actualizado" : "Articulo no se pudo actualizar";
 			}
 		break;
 	
 	case 'desactivar':
 				$rspta = $articulo->desactivar($idarticulo);
-				echo $rspta ? "Articulo desactivada" : "Articulo no se pudo desactivar";
+				echo $rspta ? "Articulo desactivado" : "Articulo no se pudo desactivar";
 		break;
 
 	case 'activar':
 				$rspta = $articulo->activar($idarticulo);
-				echo $rspta ? "Articulo activada" : "Articulo no se pudo activar";
+				echo $rspta ? "Articulo activado" : "Articulo no se pudo activar";
 		break;
 
 	case 'mostrar':
@@ -76,6 +84,19 @@ switch ($_GET["op"]) {
 					"aaData"=>$data//
 				);
 				echo json_encode($results);
+		break;
+
+		case "selectCategoria":
+		require_once "../modelos/Categoria.php";
+		$categoria = new Categoria();
+
+		$rspta = $categoria->select();
+
+		while ($reg = $rspta->fetch_object())
+		{
+			echo '<option value='.$reg->idcategoria.'>'.$reg->nombre.'</option>';
+		}
+
 		break;
 
 }
