@@ -15,18 +15,21 @@ function init(){
  		$("#idcategoria").html(r);
  		$('#idcategoria').selectpicker('refresh');
  });
+// oculta la imagen
+ $("#imagenmuestra").hide();
 
 }
 
 // Funcion limpiar
 function limpiar (){
-/*	$("#idarticulo").val("");
-	$("#idcategoria").val("");*/
+	$("#idarticulo").val("");
 	$("#codigo").val("");
 	$("#nombre").val("");
 	$("#descripcion").val("");
 	$("#stock").val("");
-/*	$("#imagen").val("");*/
+	$("#imagenmuestra").attr("src","");
+	$("#imagenactual").val("");
+	$("#print").hide();
 }
 
 // Funcion mostrar formulario
@@ -38,11 +41,13 @@ function mostrarform(flag)
 			$("#listadoregistros").hide(); // son los nombres de los div esto lo oculta
 			$("#formularioregistros").show(); // div lo pone visible 
 			$("#btnGuardar").prop("disabled",false); // este boton inicialmenteaparece visible con esto lo oculta
+			$("#btnagregar").hide();//oculta el boton agragar
 		}
 		else
 		{
 			$("#listadoregistros").show(); // con la propiedad show se visualiza el div
 			$("#formularioregistros").hide(); // con la propiedad hide se oculta el div
+			$("#btnagregar").show(); //pone visible el boton agregar 
 		}
 	}
 
@@ -114,10 +119,17 @@ function guardaryeditar(e) {
 		$("#idcategoria").selectpicker('refresh');
 		$("#codigo").val(data.codigo);
  		$("#nombre").val(data.nombre);
-		$("#stock").val(descripcion);
+		$("#stock").val(data.stock);
  		$("#descripcion").val(data.descripcion);
-		/*$("#imagen").val(data.imagen)*/
+ 		// mostrar la imagen	
+ 		$("#imagenmuestra").show();
+ 		$("#imagenmuestra").attr("src","../files/articulos/"+data.imagen);
+ 		$("#imagenactual").val(data.imagen);
+ 		//
  		$("#idarticulo").val(data.idarticulo);
+ 		// cuando se modifica carga automaticamente el codigo de barras
+ 		generarbarcode();
+
 
  	})
  }
@@ -148,6 +160,21 @@ function activar(idarticulo)
 		}
 	})
 }
+
+// funcion para generar codigo de barrar
+function generarbarcode(){
+	codigo=$("#codigo").val();
+	JsBarcode("#barcode", codigo);
+	$("#print").show();
+}
+
+// funcion para imprimir codigo de barras 
+function imprimir(){
+	// con esto le decimos que me imprima el objeto llamado print
+$("#print").printArea();
+ 
+}
+
 
 
 

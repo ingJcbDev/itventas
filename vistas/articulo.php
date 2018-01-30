@@ -12,7 +12,7 @@
     <div class="col-md-12">
       <div class="box">
         <div class="box-header with-border">
-          <h1 class="box-title">Articulo <button class="btn btn-success" onclick="mostrarform(true)">
+          <h1 class="box-title">Articulo <button class="btn btn-success" onclick="mostrarform(true)" id="btnagregar">
             <i class="fa fa-plus-circle"></i> 
             Agregar</button></h1>
             <div class="box-tools pull-right">
@@ -68,12 +68,29 @@
 
               <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xl-12">
                 <label>Imagen:</label>
-                <input type="file" class="form-control" name="imagen" id="imagen" required>
+                <input type="file" class="form-control" name="imagen" id="imagen">
+                <input type="hidden" name="imagenactual" id="imagenactual">
+                <img src="" width="150px" height="120px" id="imagenmuestra">
               </div>              
 
               <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xl-12">
                 <label>Codigo:</label>
                 <input type="text" class="form-control" name="codigo" id="codigo" placeholder="Codigo de Barras" required>
+                <!-- boton que genera el codigo de barras -->
+                <button class="btn btn-success" onclick="generarbarcode()">Generar</button>
+                <!--  -->
+
+                <!-- Boton para imprimir codigo de barras -->
+                <button class="btn btn-info" type="button" onclick="imprimir()">Imprimir</button>
+                <!--  -->
+
+                <!-- div que va mostrar codigo de barras-->
+                <div id="print">
+                  <!-- etiqueta en la cual se alojara el codigo de barras -->
+                  <svg id="barcode"> </svg>
+                </div>
+                <!--  -->
+
               </div>
 
               <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xl-12">
@@ -106,5 +123,13 @@
 <?php
  	require 'footer.php';
 ?>
+
+<!-- libreria que me genera el codigo de barras -->
+<script type="text/javascript" src="../public/js/JsBarcode.all.min.js"></script>
+<!--  -->
+<!-- libreria para imprimir codigo de barras -->
+<script type="text/javascript" src="../public/js/jquery.PrintArea.js"></script>
+<!--  -->
+
 <script type="text/javascript" src="scripts/articulo.js" ></script>
  
