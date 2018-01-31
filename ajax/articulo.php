@@ -36,10 +36,10 @@ valida que al cargar la imagen sea de tipo jpg, png o jpeg
 
 			if(empty($idarticulo)){
 				$rspta = $articulo->insertar($idcategoria, $codigo, $nombre, $stock, $descripcion, $imagen);
-				echo $rspta ? "Articulo registrada" : "Articulo no se pudo registrar";
+				echo $rspta ? "Articulo registrado" : "Articulo no se pudo registrar";
 			}	else {
 				$rspta = $articulo->editar($idarticulo, $idcategoria, $codigo, $nombre, $stock, $descripcion, $imagen);
-				echo $rspta ? "Articulo actualizada" : "Articulo no se pudo actualizar";
+				echo $rspta ? "Articulo actualizado" : "Articulo no se pudo actualizar";
 			}
 		break;
 	

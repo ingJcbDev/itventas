@@ -77,7 +77,7 @@
                 <label>Codigo:</label>
                 <input type="text" class="form-control" name="codigo" id="codigo" placeholder="Codigo de Barras" required>
                 <!-- boton que genera el codigo de barras -->
-                <button class="btn btn-success" onclick="generarbarcode()">Generar</button>
+                <button class="btn btn-success" type="button" onclick="generarbarcode()">Generar</button>
                 <!--  -->
 
                 <!-- Boton para imprimir codigo de barras -->

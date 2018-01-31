@@ -22,7 +22,6 @@ function init(){
 
 // Funcion limpiar
 function limpiar (){
-	$("#idarticulo").val("");
 	$("#codigo").val("");
 	$("#nombre").val("");
 	$("#descripcion").val("");
@@ -30,6 +29,7 @@ function limpiar (){
 	$("#imagenmuestra").attr("src","");
 	$("#imagenactual").val("");
 	$("#print").hide();
+	$("#idarticulo").val("");
 }
 
 // Funcion mostrar formulario
