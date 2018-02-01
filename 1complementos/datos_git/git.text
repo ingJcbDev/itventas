@@ -1,6 +1,118 @@
+--   MANEJO DE GIT
+  1. Crear una rama
+	git checkout -b rama_nueva
+  2.Realizo las modificaciones en la rama creada
+  3.reviso que modificaciones se realizaron
+	git status
+  4.Agrego modificaciones realizadas
+	git add .
+  5.Guardo las modificaciones para que imp pueda 	descargar
+--	git commit -am "numero del caso de la mesa de ayuda”
+
+  6.HACER PUSH
+		git push origin rama_nueva
+  7.Despues de que este aprobado el caso paso los     cambios al repositorio primario unificando la informacion con 
+	git checkout dev
+	git pull origin dev
+	git merge (Numero d la rama)
+	git push origin dev
+***
+--Ejemplo de busqueda -r busca recursivamente dentro de todos los subdirectorios del directorio actual..
+grep -r "TIEMPO" .
+--Ejemplo de busqueda .
+grep -l "TIEMPO" .
+
+grep -rl "TIEMPO" .
+
+grep -rl "CalculoFechas" . // ruta del archivo
+
+grep -r "CalculoFechas" . // ruta del archivo y ubicacion en el codigo
+
+-- Comando para buscar los cambios realizados en un archivo 
+
+git diff app_modules/CajaGeneral/app_CajaGeneral_user.php
+
+***
+-- Comando para limpiar la cache del config para que no se genere conflictos
+
+git rm -r --cached ConfigDB.php
+
+para pasarme de rama
+git checkout nombre de la rama
+
+para borrar la rama  siempre debo estar ubicado en dev
+git branch -d nombre de la rama
+
+cambiar de nombre una rama
+git branch -m old_branch new_branch 
+
+-- para subir dev 
+
+al terminar un caso estos son los pasos a seguir para  publicarlos para todos
+
+git pull origin dev
+git merge 00000
+git push origin dev
+	
+
+
+
+    PUSH PUBLICA
+   PULL DESCARGA
+
+	
+
+revertir un merge, commit
+
+1.me paro sobre la rama que voy a revertir
+git reflog->para ver los movimientos realizados
+
+2,git reset –hard HEAD ~1->numero de cabecera
+agregar un archivo a la fuerza
+
+-- Corregir mensaje de commit en git 
+
+--A veces sucede que enviamos commits a git con mensajes incorrectos, supongamos que ya se envió un commit de este estilo:
+
+
+git commit -m "Mensaje incorrecto"
+
+--Para corregir el mensaje de este último commit se hace lo siguiente:
+
+
+git commit -m "Mensaje corregido" --amend
+
+-- para eliminar carpeta por consola puty
+
+rm -rf Nombre_del_directorio/
+
+
+
+----------------------------------- inicio de repositorio -------------------------------
+
 // -- ubicarse donde va quedar el proyecto comando (cd/nombreCarpeta) 
+
+git cd /c/xampp/htdocs/Nombre_proyecto
+
 git init  // -- iniciar un nuevo repositorio
 
 git remote add origin https://github.com/ingJcbDev/itventas.git  //-- Para agregar el repositorio remoto 
 
+git config --list // se ve la configuracion del repositorio 
+
+-- se agreran usuario y contraseña
+
 git config --global user.email ing.jcb.dev@gmail.com 
+
+git config --global user.name ingJcbDev
+
+-- agregar todas las carpetas 
+
+git add .
+
+-- realizar un commit
+
+git commit -am "mi primer commit" 
+
+
+
