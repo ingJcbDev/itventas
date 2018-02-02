@@ -15,9 +15,9 @@ class Persona {
 // 		idpersona, tipo_persona, nombre, tipo_documento, num_documento, direccion, telefono, email
 
 	// Metodo de insert registros tabla persona
-	public function insertar  ($tipo_persona, $nombre, $tipo_documento, $num_documento, $direccion, $telefono, $email)
+	public function insertar($tipo_persona, $nombre, $tipo_documento, $num_documento, $direccion, $telefono, $email)
 	{
-		$sql="INSERT INTO persona (tipo_persona, nombre, tipo_documento, num_documento, direccion, telefono, email) VALUES ('$tipo_persona', '$nombre', '$tipo_documento', '$num_documento', '$direccion', '$telefono', '$email', '1')";
+		$sql="INSERT INTO persona (tipo_persona, nombre, tipo_documento, num_documento, direccion, telefono, email) VALUES ('$tipo_persona', '$nombre', '$tipo_documento', '$num_documento', '$direccion', '$telefono', '$email')";
 		return ejecutarConsulta($sql);
 	}
 
@@ -31,14 +31,11 @@ class Persona {
 	// Metodo de eliminar persona
 	public function eliminar ($idpersona)
 	{
-		$sql="DELETE FROM persona WHERE idpersona='$idpersona'";
-		return ejecutarConsulta($sql);
-	}
-
-    // Metodo de update activar persona
-	public function activar ($idpersona)
-	{
-		$sql="UPDATE persona SET condicion='1' WHERE idpersona='$idpersona'";
+		$sql="DELETE FROM persona WHERE idpersona='$idpersona';";
+/*echo "<pre><br>Elin¡minas:<br>";
+print_r($sql);
+echo "</pre>";
+die();*/
 		return ejecutarConsulta($sql);
 	}
 
@@ -50,16 +47,16 @@ class Persona {
 	}
 
 	// mostrar lista de registros 
-	public function listar()
+	public function listarp()
 	{
-		$sql="SELECT * FROM persona";
+		$sql="SELECT * FROM persona WHERE tipo_persona = 'Proveedor';";
 		return ejecutarConsulta($sql);
 	}
 
-	// mostrar select de las personas 
-	public function select()
+	// mostrar lista de registros 
+	public function listarc()
 	{
-		$sql="SELECT * FROM persona where condicion=1;";
+		$sql="SELECT * FROM persona WHERE tipo_persona = 'Cliente';";
 		return ejecutarConsulta($sql);
 	}
 
