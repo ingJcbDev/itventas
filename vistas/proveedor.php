@@ -34,7 +34,6 @@
                 <th>Opciones</th>
                 <th>Nombre</th>
                 <th>Tipo Documento</th>
-                <th>Documento</th>
                 <th>Numero</th>
                 <th>Email</th>
               </tfoot>
@@ -42,7 +41,6 @@
           </div>
           <div class="panel-body" id="formularioregistros">
             <form name="formulario" id="formulario" method="POST">
-
               <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xl-12">
                 <label>Nombre:</label>
                 <input type="hidden" name="idpersona" id="idpersona">
